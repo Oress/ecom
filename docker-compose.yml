@@ -1,0 +1,14 @@
+version: "3.7"
+services:
+  products:
+    image: mongo:5.0.9-focal
+    container_name: mongodb
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${PRODUCT_DB_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${PRODUCT_DB_PWD}
+      MONGO_INITDB_DATABASE: products
+    ports:
+      - 27017:27017
+    volumes:
+      - ./initdata/products-init.js:/docker-entrypoint-initdb.d/products-init.js:ro
