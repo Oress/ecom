@@ -6,16 +6,6 @@ plugins {
 group 'org.ecom'
 version '1.0'
 
-repositories {
-    mavenCentral()
-}
-
-def managedVersions = dependencyManagement.managedVersions
-def eurekaVersion = managedVersions['org.springframework.cloud:spring-cloud-starter-netflix-eureka-server']
-
 dependencies {
-    implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-server:${eurekaVersion}") {
-        exclude group: 'javax.servlet', module: 'servlet-api'
-    }
-    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-server")
 }

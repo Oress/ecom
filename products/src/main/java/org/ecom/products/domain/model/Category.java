@@ -1,4 +1,4 @@
-package org.ecom.products.model;
+package org.ecom.products.domain.model;
 
 import lombok.Data;
 import org.springframework.data.mongodb.core.mapping.Document;
