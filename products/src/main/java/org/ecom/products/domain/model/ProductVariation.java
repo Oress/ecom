@@ -4,8 +4,12 @@ import lombok.Data;
 
 @Data
 public class ProductVariation {
+    private String id;
     private String sku;
-    private Price price;
+    private String type;
+    private String title;
+    private String code;
     private double quantity;
-    private Options options;
+    private Price price;
+    private FeatureGroups features;
 }

@@ -11,4 +11,4 @@ services:
     ports:
       - 27017:27017
     volumes:
-      - ./initdata/products-init.js:/docker-entrypoint-initdb.d/products-init.js:ro
+      - ./initdata/products-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro

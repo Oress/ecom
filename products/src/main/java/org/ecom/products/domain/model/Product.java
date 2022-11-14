@@ -10,10 +10,10 @@ import java.util.List;
 public class Product {
     private String id;
     private String code;
-    private String name;
-    private String brand;
-    private String genre;
+    private String title;
     private String description;
-    private List<String> categories;
+//    private String producer;
+    private String category;
+    private boolean isActive;
     private List<ProductVariation> variations;
 }

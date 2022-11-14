@@ -1,0 +1,16 @@
+spring:
+  data:
+    mongodb:
+      host: ${PRODUCT_DB_HOST:localhost}
+      database: ${PRODUCT_DB_NAME:products}
+      authenticationDatabase: admin
+      username: ${PRODUCT_DB_USER:produser}
+      password: ${PRODUCT_DB_PWD:prodpwd}
+logging:
+  level:
+    org:
+      springframework:
+        data:
+          mongodb:
+            core:
+              MongoTemplate: DEBUG

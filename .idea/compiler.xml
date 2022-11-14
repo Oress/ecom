@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Gradle Imported" enabled="true">
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.24/13a394eed5c4f9efb2a6d956e2086f1d81e857d9/lombok-1.18.24.jar" />
+        </processorPath>
+        <module name="ecom.products.main" />
+        <module name="ecom.users.test" />
+        <module name="ecom.config.test" />
+        <module name="ecom.cart.main" />
+        <module name="ecom.users.main" />
+        <module name="ecom.config.main" />
+        <module name="ecom.discovery.test" />
+        <module name="ecom.cart.test" />
+        <module name="ecom.products.test" />
+        <module name="ecom.discovery.main" />
+      </profile>
+    </annotationProcessing>
     <bytecodeTargetLevel target="17" />
   </component>
   <component name="JavacSettings">
