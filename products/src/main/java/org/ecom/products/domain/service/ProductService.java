@@ -20,11 +20,23 @@ public class ProductService {
 
     public OperationResult saveOrUpdate(@NonNull Product incoming) {
         Product persistent = tryGetProduct(incoming);
+
         if (persistent != null) {
             // handle update
         } else {
-            // handle update
+            createProduct(incoming);
         }
+
+        return OperationResult.builder().isSuccessful(true).build();
+    }
+
+    private void createProduct(Product incoming) {
+        // handle save
+        if (StringUtils.isEmpty(incoming.getCode())) {
+            // generate code
+        }
+
+        mongoTemplate.insert(incoming);
     }
 
 

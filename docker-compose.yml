@@ -12,3 +12,14 @@ services:
       - 27017:27017
     volumes:
       - ./initdata/products-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+  activemq:
+    image: webcenter/activemq:5.14.3
+    container_name: broker
+    restart: always
+    environment:
+      ACTIVEMQ_CONFIG_MINMEMORY: 512
+      ACTIVEMQ_CONFIG_MAXMEMORY: 1024
+    ports:
+      - 8161:8161
+      - 61616:61616
+      - 61613:61613

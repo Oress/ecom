@@ -4,4 +4,5 @@ include 'discovery'
 include 'config'
 include 'products'
 include 'cart'
+include 'activemq'
 

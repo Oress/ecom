@@ -1,11 +1,13 @@
 package org.ecom.products.dto;
 
 import lombok.Builder;
+import lombok.Value;
 
 import java.util.List;
 
 @Builder
+@Value
 public class OperationResult {
-    private boolean isSuccessful;
-    private List<ClientMessage> messages;
+    boolean isSuccessful;
+    List<ClientMessage> messages;
 }

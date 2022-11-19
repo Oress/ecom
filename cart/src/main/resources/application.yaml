@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: cart
+  activemq:
+    broker-url: ${BROKER_HOST:tcp://localhost:61616}
+    user: ${BROKER_USER:admin}
+    password: ${BROKER_PWD:admin}
+  jpa:
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: create-drop
+  datasource:
+    url: jdbc:h2:mem:testdb
+  h2:
+    console:
+      enabled: true

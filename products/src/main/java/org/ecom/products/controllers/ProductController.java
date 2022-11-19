@@ -1,14 +1,12 @@
 package org.ecom.products.controllers;
 
-import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 import org.ecom.products.domain.repository.ProductRepository;
+import org.ecom.products.domain.service.ProductService;
 import org.ecom.products.dto.ProductSearchCriteria;
 import org.ecom.products.domain.model.Product;
 import org.ecom.products.dto.OperationResult;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -19,10 +17,12 @@ import java.util.Optional;
 @RequestMapping("/products")
 public class ProductController {
     private final ProductRepository productRepository;
+    private final ProductService productService;
 
     @Autowired
-    public ProductController(ProductRepository productRepository) {
+    public ProductController(ProductRepository productRepository, ProductService productService) {
         this.productRepository = productRepository;
+        this.productService = productService;
     }
 
     @GetMapping
@@ -43,9 +43,8 @@ public class ProductController {
     public OperationResult saveOrUpdateProducts(@RequestBody List<Product> products) {
         OperationResult result = null;
 
-        for (Product product : products) {
-
-        }
+        boolean isSuccessful = products.stream().allMatch(product -> productService.saveOrUpdate(product).isSuccessful());
+        result = OperationResult.builder().isSuccessful(isSuccessful).build();
 
         return result;
     }
