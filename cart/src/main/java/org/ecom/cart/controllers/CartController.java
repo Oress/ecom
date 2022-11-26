@@ -1,9 +1,10 @@
 package org.ecom.cart.controllers;
 
 import org.ecom.cart.domain.model.Cart;
+import org.ecom.cart.domain.model.Price;
 import org.ecom.cart.domain.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jms.core.JmsTemplate;
+import org.springframework.jms.core.JmsMessagingTemplate;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -17,16 +18,20 @@ public class CartController {
 //        this.cartRepository = cartRepository;
 //    }
 
-    private final JmsTemplate jmsTemplate;
+    private final JmsMessagingTemplate jmsTemplate;
 
     @Autowired
-    public CartController(JmsTemplate jmsTemplate) {
+    public CartController(JmsMessagingTemplate jmsTemplate) {
         this.jmsTemplate = jmsTemplate;
     }
 
     @GetMapping
     public Cart getCart(@PathVariable String userId) {
-        this.jmsTemplate.send("test", session -> session.createTextMessage("yo Yo yo my"));
+        Price p = new Price();
+        p.setBase(123);
+        p.setDiscount(421);
+        p.setCurrency("USD");
+        this.jmsTemplate.convertAndSend("test", p);
         return null;
     }
 

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class CartEventHandler {
 
-    @JmsListener(destination = "cartEvents")
+    @JmsListener(destination = "cartItemAdded")
     public void processMessage(String content) {
 
     }
